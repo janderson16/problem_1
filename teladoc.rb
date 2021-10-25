@@ -93,15 +93,9 @@ class Test < Minitest::Test
     end
 
     it "can handle line breaks" do
-        strings = [ "afsdf \n dsafds" ]
+        strings = [ "afsdf \n dsafds", "afsdf  dsafds" ]
         i = 1000
-        assert_equal ({ 14=>1 }), filter_and_group(strings, i)
-    end
-
-    it "can handle line breaks" do
-        strings = [ "afsdf \n dsafds" ]
-        i = 1000
-        assert_equal ({ 14=>1 }), filter_and_group(strings, i)
+        assert_equal ({ 13=>1, 14=>1 }), filter_and_group(strings, i)
     end
   end
 end
